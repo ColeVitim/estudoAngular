@@ -7,13 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { cursoComponent } from './curso/curso.component';
 import { AprovacaoComponent } from './aprocavao/aprovacao.component';
+import { ReplacePipe } from './pipe/replace.pipe';
 
 /* quand crio modulos(componentes) tenho que declara eles no declarations */ 
 @NgModule({
   declarations: [
     AppComponent,
     cursoComponent,
-    AprovacaoComponent
+    AprovacaoComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,

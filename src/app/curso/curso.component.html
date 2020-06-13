@@ -27,8 +27,8 @@
             <td>{{ curso.nome  }}</td>
             <td>{{ curso.preco  }}</td>
             <td>{{ curso.duracao }}</td>
-            <td>{{ curso.lancamento  }}</td>
-            <td>{{ curso.codigo  }}</td>
+            <td>{{ curso.lancamento }}</td>
+            <td>{{ curso.codigo | replace: '-': '/' }}</td>
             <td>
                 <app-aprovacao [rating]="curso.aprovacao"></app-aprovacao>
             </td>
