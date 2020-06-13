@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; //-------|
 import { ReactiveFormsModule } from '@angular/forms';//|-- adicionei esses 2 imports para reslver um erro (Can't bind to 'ngModel' since it isn't a known property of 'input') que ocorria com o filtro de cursos
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,7 +29,8 @@ import { CursoInfoComponent } from './curso/curso-info.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,7 +33,8 @@
                 <app-aprovacao [rating]="curso.aprovacao"></app-aprovacao>
             </td>
             <td>
-                <a [routerLink]="['/curso/info', curso.id]" class="btn btn-primary">Editar</a>
+                <a [routerLink]="['/curso/info', curso.id]" class="btn btn-primary mr-2">Editar</a>
+                <a (click)="deletarCurso(curso.id)" class="btn btn-primary">Deletar</a>
             </td>
         </tr>
     </tbody>

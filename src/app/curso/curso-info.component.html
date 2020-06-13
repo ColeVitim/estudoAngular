@@ -1,7 +1,7 @@
 <h1>Informações do curso</h1>
 <hr>
-
-<form #cursoForm='ngForm'>
+                            <!-- esse ngIg é pra carregar o html depois que o metodo que busca do api retornar pq é assincrono-->
+<form #cursoForm='ngForm' *ngIf='curso'>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Nome:</label>
         <div class="col-sm-10">

@@ -15,13 +15,18 @@ export class CursoInfoComponent implements OnInit {
 
     }
 
-    ngOnInit(): void {
-        //no oninit
-        this.curso = this.servico.obterPorId(+this.activateRoute.snapshot.paramMap.get('id'));// o + na frente converte para number
+    ngOnInit(): void {        
+       this.servico.obterPorId(+this.activateRoute.snapshot.paramMap.get('id')).subscribe({ // o + na frente converte para number
+            next: curso => this.curso = curso,
+            error: err => console.log('erro ', err)
+       });
     }
 
     Salvar(): void{
-        this.servico.salvarCurso(this.curso);
+      this.servico.salvarCurso(this.curso).subscribe({
+          next: curso => console.log('salvo'),
+          error: err => console.log('erro',err)
+      });
     }
 
 }

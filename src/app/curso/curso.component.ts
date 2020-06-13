@@ -22,8 +22,28 @@ export class cursoComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this._cursos = this.cursoServico.obterTOdosCursos();
-        this.cursosFiltrados = this._cursos
+        this.ObterTodosCursos();
+    }
+
+    ObterTodosCursos(): void{
+        this.cursoServico.obterTOdosCursos().subscribe({
+            next: cursos => {
+                this._cursos = cursos;
+                this.cursosFiltrados = this._cursos;
+            },
+            error: err => console.log('Error', err)
+        })
+    }
+
+    deletarCurso(id: number): void {
+
+        this.cursoServico.deletarCurso(id).subscribe({
+            next: () => {
+                console.log('deletado');
+                this.ObterTodosCursos();
+            },
+            error: err => console.log('erro' , err)
+        })
     }
 
     set filtro(valor: string){
