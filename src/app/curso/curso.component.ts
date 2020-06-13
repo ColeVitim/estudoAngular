@@ -1,55 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { curso } from './curso';
+import { CursoService } from './curso.service';
+
 
 @Component({
     selector: 'app-curso',
     templateUrl: './curso.component.html'
 })
 
-export class cursoComponent implements OnInit{
+export class cursoComponent implements OnInit {
 
-cursos: curso[];
+    cursosFiltrados: curso[] = [];
+    
+    //underline antes das variaveis é um convenção pra dizer que ela não vai ser modificada
+    _cursos: curso[];
+    _filtradoPor: string;
 
-ngOnInit(): void{
-this.cursos =[
-    {
-        id: 1,
-        nome: 'curso estudo angular iniciante',
-        imageUrl: '/assets/images/animations.png',
-        preco: 89.90,
-        codigo: 'ewrwerwe-01',
-        aprovacao: 1.3,
-        duracao: 120,
-        lancamento: 'janeiro, 3, 2019'
-    },
-    {
-        id: 2,
-        nome: 'curso estudo angular intermediario',
-        imageUrl: '/assets/images/router.png',
-        preco: 189.90,
-        codigo: 'teste123-033',
-        aprovacao: 3.8,
-        duracao: 180,
-        lancamento: 'abril, 7, 2019'
-    },
-    {
-        id: 3,
-        nome: 'curso estudo angular avançado',
-        imageUrl: '/assets/images/http.png',
-        preco: 389.90,
-        codigo: 'terrrr123-01',
-        aprovacao: 5.0,
-        duracao: 300,
-        lancamento: 'dezembro, 25, 2019'
+    //construtor e a injeção de dependencia do curso
+    constructor(private cursoServico: CursoService) {
+
     }
-    
- ]
+
+    ngOnInit(): void {
+        this._cursos = this.cursoServico.obterTOdosCursos();
+        this.cursosFiltrados = this._cursos
+    }
+
+    set filtro(valor: string){
+        this._filtradoPor = valor;
+
+        this.cursosFiltrados = this._cursos.filter((curso: curso) => curso.nome.toLocaleLowerCase().indexOf(this._filtradoPor.toLocaleLowerCase()) > -1)
+    }
+
+    get filtro(){
+        return this._filtradoPor
+    }
 
 
-
-
-
-} 
-
-    
 }

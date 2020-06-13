@@ -7,15 +7,15 @@ import { Component, OnChanges, Input } from '@angular/core';
 })
 
 
-export class AprovacaoComponent implements OnChanges{
+export class AprovacaoComponent implements OnChanges {
 
 
     @Input()//serve para outro componente ter acesso a variaveis
     rating: number = 0;
 
     ratingwidth: number;//vai servir para ajustar o tamanho da div das estrelas 
-ngOnChanges(): void{
- this.ratingwidth = this.rating * 74 / 5;//calculo usado pra trabalhar o width do rating vai ser utilizado com o font-awesome
-}
+    ngOnChanges(): void {
+        this.ratingwidth = this.rating * 74 / 5;//calculo usado pra trabalhar o width do rating vai ser utilizado com o font-awesome
+    }
 
 }

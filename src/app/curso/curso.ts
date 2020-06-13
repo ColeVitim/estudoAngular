@@ -1,4 +1,4 @@
-export class curso{
+export class curso {
     id: number;
     nome: string;
     imageUrl: string;
@@ -7,4 +7,5 @@ export class curso{
     duracao: number;
     aprovacao: number;
     lancamento: string;
+    descricao: string;
 }
