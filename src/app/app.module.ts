@@ -8,6 +8,10 @@ import { AppComponent } from './app.component';
 import { cursoComponent } from './curso/curso.component';
 import { AprovacaoComponent } from './aprocavao/aprovacao.component';
 import { ReplacePipe } from './pipe/replace.pipe';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { RouterModule } from '@angular/router';
+import { Error404Component } from './error-page404/error-page404.component';
+import { CursoInfoComponent } from './curso/curso-info.component';
 
 /* quand crio modulos(componentes) tenho que declara eles no declarations */ 
 @NgModule({
@@ -15,9 +19,12 @@ import { ReplacePipe } from './pipe/replace.pipe';
     AppComponent,
     cursoComponent,
     AprovacaoComponent,
-    ReplacePipe
+    ReplacePipe,
+    NavBarComponent,
+    Error404Component,
+    CursoInfoComponent
   ],
-  imports: [
+  imports: [//tud que é modul eu declaro aqui no imports (no caso das rotas a declaração do mdulo de rotas da no arquivo app.routing.module)
     BrowserModule,
     AppRoutingModule,
     FormsModule,

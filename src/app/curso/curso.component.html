@@ -32,6 +32,9 @@
             <td>
                 <app-aprovacao [rating]="curso.aprovacao"></app-aprovacao>
             </td>
+            <td>
+                <a [routerLink]="['/curso/info', curso.id]" class="btn btn-primary">Editar</a>
+            </td>
         </tr>
     </tbody>
 

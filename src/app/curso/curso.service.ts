@@ -10,6 +10,17 @@ export class CursoService {
         return CURSOS;
     }
 
+    obterPorId(id: number): curso{
+        return CURSOS.find((curso: curso) => curso.id == id);
+    }
+
+    salvarCurso(curso: curso): void{
+        if(curso.id){
+            const index = CURSOS.findIndex((cur: curso) => cur.id == curso.id);
+            CURSOS[index] = curso;
+        }
+    }
+
 }
 
 
